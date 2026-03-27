@@ -137,6 +137,7 @@ proxies:
       h1: 2
       h2: 3
       itime: 180
+      
   - name: "🚀 AWG 1.5 (Вариант 3)"
     type: wireguard
     server: 162.159.192.1
