@@ -75,7 +75,7 @@ proxies:
       jmin: 20
       jmax: 80
 
-  - name: "🛡️ AntiDPI"
+  - name: "🚀 AWG 1.5 (Вариант 1)"
     type: wireguard
     server: 162.159.192.1
     port: 4500
@@ -162,7 +162,9 @@ proxy-groups:
   - name: 🛡️ Anti-DPI
     type: select
     proxies:
-      - 🛡️ AntiDPI
+      - 🚀 AWG 1.5 (Вариант 1)
+      - 🚀 AWG 1.5 (Вариант 2)
+      - 🚀 AWG 1.5 (Вариант 3)
       - 🇫🇮 FI-1
 
   - name: ⚡ Main
@@ -170,6 +172,7 @@ proxy-groups:
     proxies:
       - ♻️ Failover
       - 🛡️ Anti-DPI
+      - 🚀 AWG 1.5 (Вариант 1)
       - 🚀 AWG 1.5 (Вариант 2)
       - 🚀 AWG 1.5 (Вариант 3)
       - DIRECT
