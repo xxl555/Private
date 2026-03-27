@@ -195,11 +195,11 @@ rules:
   - DOMAIN-SUFFIX,cdninstagram.com,🛡️ Anti-DPI
 
   # YouTube (через стабильные сервера)
-  - DOMAIN-SUFFIX,youtube.com,🌍 Auto
-  - DOMAIN-SUFFIX,googlevideo.com,🌍 Auto
-  - DOMAIN-SUFFIX,ytimg.com,🌍 Auto
-  - DOMAIN-KEYWORD,youtube,🌍 Auto
-  - DOMAIN-KEYWORD,googlevideo,🌍 Auto
+  - DOMAIN-SUFFIX,youtube.com,🛡️ Anti-DPI
+  - DOMAIN-SUFFIX,googlevideo.com,🛡️ Anti-DPI
+  - DOMAIN-SUFFIX,ytimg.com,🛡️ Anti-DPI
+  - DOMAIN-KEYWORD,youtube,🛡️ Anti-DPI
+  - DOMAIN-KEYWORD,googlevideo,🛡️ Anti-DPI
 
   # Viber (только быстрый канал!)
   - PROCESS-NAME,com.viber.voip,🌍 Auto
