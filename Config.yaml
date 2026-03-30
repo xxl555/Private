@@ -232,7 +232,7 @@ rules:
 
   # Viber (только быстрый канал!)
   - PROCESS-NAME,com.viber.voip,🌍 Auto
-    - DOMAIN-SUFFIX,viber.com,Auto
+  - DOMAIN-SUFFIX,viber.com,Auto
   - DOMAIN-SUFFIX,amazonaws.com,Auto
   - DOMAIN-SUFFIX,rakuten.com,Auto
   - DOMAIN-SUFFIX,rakuten-static.com,Auto
