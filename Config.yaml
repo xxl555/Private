@@ -18,6 +18,9 @@ dns:
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - "*.viber.com"
+    - "*.vibercdn.com"
+    - "*.rakuten.com"
+    - "*.amazonaws.com"
   nameserver:
     - https://1.1.1.1/dns-query
     - https://dns.google/dns-query
