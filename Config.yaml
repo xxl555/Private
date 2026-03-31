@@ -37,7 +37,13 @@ dns:
 
 # ================= PROXIES =================
 proxies:
-
+  - name: "Socks5"
+    type: socks5
+    server: 127.0.0.1
+    port: 1085
+    udp: true          # раскомментируйте, если нужен UDP через SOCKS5
+    skip-auth: true    # если прокси без авторизации (по умолчанию true)
+    
   - name: "🇳🇱 NL-1"
     type: wireguard
     server: nl.tribukvy.ltd
@@ -193,6 +199,7 @@ proxy-groups:
       - 🚀 AWG 1.5 (Вариант 1)
       - 🚀 AWG 1.5 (Вариант 2)
       - 🚀 AWG 1.5 (Вариант 3)
+      - Socks5
       - DIRECT
   - name: 🌍 Auto
     type: url-test
@@ -228,17 +235,17 @@ proxy-groups:
 rules:
 
   # Мессенджеры (обход DPI)
-  - DOMAIN-SUFFIX,telegram.org,🛡️ Anti-DPI
-  - DOMAIN-SUFFIX,t.me,🛡️ Anti-DPI
-  - DOMAIN-SUFFIX,instagram.com,🛡️ Anti-DPI
-  - DOMAIN-SUFFIX,cdninstagram.com,🛡️ Anti-DPI
+  - DOMAIN-SUFFIX,telegram.org,⚡ Main
+  - DOMAIN-SUFFIX,t.me,⚡ Main
+  - DOMAIN-SUFFIX,instagram.com,⚡ Main
+  - DOMAIN-SUFFIX,cdninstagram.com,⚡ Main
 
   # YouTube (через стабильные сервера)
-  - DOMAIN-SUFFIX,youtube.com,🛡️ Anti-DPI
-  - DOMAIN-SUFFIX,googlevideo.com,🛡️ Anti-DPI
-  - DOMAIN-SUFFIX,ytimg.com,🛡️ Anti-DPI
-  - DOMAIN-KEYWORD,youtube,🛡️ Anti-DPI
-  - DOMAIN-KEYWORD,googlevideo,🛡️ Anti-DPI
+  - DOMAIN-SUFFIX,youtube.com,⚡ Main
+  - DOMAIN-SUFFIX,googlevideo.com,⚡ Main
+  - DOMAIN-SUFFIX,ytimg.com,⚡ Main
+  - DOMAIN-KEYWORD,youtube,⚡ Main
+  - DOMAIN-KEYWORD,googlevideo,⚡ Main
 
   # Viber (только быстрый канал!)
   #- PROCESS-NAME,com.viber.voip,🌍 Auto
@@ -259,8 +266,8 @@ rules:
  # - IP-CIDR,52.0.0.0/15,🌍 Auto
   #- IP-CIDR,52.56.0.0/14,🌍 Auto
  # - IP-CIDR,63.176.0.0/14,🌍 Auto
-  - PROCESS-NAME,com.viber.voip,🇫🇮 FI-1
-
+  - PROCESS-NAME,com.viber.voip,⚡ Main
+  
   # Россия напрямую (ускоряет всё остальное)
   - GEOIP,RU,DIRECT
 
