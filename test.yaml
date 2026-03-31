@@ -29,7 +29,7 @@ dns:
 
 # ================= PROXIES =================
 proxies:
-  - name: PROXY
+  - name: local
     type: socks5
     server: 127.0.0.1
     port: 1085
@@ -39,7 +39,7 @@ proxy-groups:
   - name: PROXY
     type: select
     proxies:
-      - PROXY
+      - local
       - DIRECT
 
 rules:
