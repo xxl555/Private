@@ -53,7 +53,7 @@ rules:
   - DOMAIN-SUFFIX,instagram.com,PROXY
   
   # Telegram — локально (обход DPI)
-  - DOMAIN-SUFFIX,telegram.org,LOCAL
+  - DOMAIN-SUFFIX,telegram.org,PROXY
   
   # Остальное — через прокси
   - MATCH,PROXY
