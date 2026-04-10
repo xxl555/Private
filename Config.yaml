@@ -43,54 +43,6 @@ proxies:
     port: 1085
     udp: true          # раскомментируйте, если нужен UDP через SOCKS5
     skip-auth: true    # если прокси без авторизации (по умолчанию true)
-    
-  - name: "🇳🇱 NL-1"
-    type: wireguard
-    server: nl.tribukvy.ltd
-    port: 500
-    ip: 172.16.0.2
-    private-key: APd6Exl4fD/nv6B4PaKz70vR3pFmXG0O5IGl5hOD6FM=
-    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-    udp: true
-    mtu: 1380
-    dns: [1.1.1.1]
-    amnezia-wg-option:
-      jc: 10
-      jmin: 20
-      jmax: 80
-    persistent-keepalive: 25
-
-  - name: "🇩🇪 DE-1"
-    type: wireguard
-    server: de.tribukvy.ltd
-    port: 928
-    ip: 172.16.0.2
-    private-key: APd6Exl4fD/nv6B4PaKz70vR3pFmXG0O5IGl5hOD6FM=
-    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-    udp: true
-    mtu: 1380
-    dns: [1.1.1.1]
-    amnezia-wg-option:
-      jc: 10
-      jmin: 20
-      jmax: 80
-    persistent-keepalive: 25
-
-  - name: "🇫🇮 FI-1"
-    type: wireguard
-    server: fi.tribukvy.ltd
-    port: 955
-    ip: 172.16.0.2
-    private-key: APd6Exl4fD/nv6B4PaKz70vR3pFmXG0O5IGl5hOD6FM=
-    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
-    udp: true
-    mtu: 1380
-    dns: [1.1.1.1]
-    amnezia-wg-option:
-      jc: 10
-      jmin: 20
-      jmax: 80
-    persistent-keepalive: 25
   - name: "TEST"
     type: wireguard
     server: engage.cloudflareclient.com
@@ -189,48 +141,13 @@ proxy-groups:
   - name: ⚡ Main
     type: select
     proxies:
-      - 🌍 Auto
-      - ♻️ Failover
-      - 🛡️ Anti-DPI
-      - 🇳🇱 NL-1
-      - 🇩🇪 DE-1
-      - 🇫🇮 FI-1
       - TEST
       - 🚀 AWG 1.5 (Вариант 1)
       - 🚀 AWG 1.5 (Вариант 2)
       - 🚀 AWG 1.5 (Вариант 3)
       - Socks5
       - DIRECT
-  - name: 🌍 Auto
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-    proxies:
-      - 🇳🇱 NL-1
-      - 🇩🇪 DE-1
-      - 🇫🇮 FI-1
-
-  - name: ♻️ Failover
-    type: fallback
-    url: http://www.gstatic.com/generate_204
-    interval: 60
-    proxies:
-      - 🇳🇱 NL-1
-      - 🇩🇪 DE-1
-      - 🇫🇮 FI-1
-
-  - name: 🛡️ Anti-DPI
-    type: select
-    proxies:
-      - 🚀 AWG 1.5 (Вариант 1)
-      - 🚀 AWG 1.5 (Вариант 2)
-      - 🚀 AWG 1.5 (Вариант 3)
-      - 🇫🇮 FI-1
-      - TEST
-
-
-
+ 
 # ================= RULES =================
 rules:
 
@@ -247,25 +164,6 @@ rules:
   - DOMAIN-KEYWORD,youtube,⚡ Main
   - DOMAIN-KEYWORD,googlevideo,⚡ Main
 
-  # Viber (только быстрый канал!)
-  #- PROCESS-NAME,com.viber.voip,🌍 Auto
-  #- DOMAIN-SUFFIX,viber.com,🌍 Auto
-  #- DOMAIN-SUFFIX,amazonaws.com,🌍 Auto
-  #- DOMAIN-SUFFIX,rakuten.com,🌍 Auto
-  #- DOMAIN-SUFFIX,rakuten-static.com,🌍 Auto
- #- IP-CIDR,3.64.0.0/12,🌍 Auto
-  #- IP-CIDR,3.120.0.0/14,🌍 Auto
-  #- IP-CIDR,3.124.0.0/14,🌍 Auto
- # - IP-CIDR,15.184.0.0/14,🌍 Auto
- # - IP-CIDR,18.156.0.0/14,🌍 Auto
- # - IP-CIDR,18.184.0.0/13,🌍 Auto
-  #- IP-CIDR,18.192.0.0/13,🌍 Auto
- # - IP-CIDR,34.192.0.0/12,🌍 Auto
- # - IP-CIDR,35.156.0.0/14,🌍 Auto
-  #- IP-CIDR,35.207.0.0/16,🌍 Auto
- # - IP-CIDR,52.0.0.0/15,🌍 Auto
-  #- IP-CIDR,52.56.0.0/14,🌍 Auto
- # - IP-CIDR,63.176.0.0/14,🌍 Auto
   - PROCESS-NAME,com.viber.voip,⚡ Main
   
   # Россия напрямую (ускоряет всё остальное)
